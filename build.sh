@@ -40,7 +40,7 @@ jpackage \
   --main-jar saft-sender-1.0-SNAPSHOT.jar \
   --main-class com.premiumminds.saftsender.gui.Launcher \
   --name saft-sender \
-  --dest ./target/jpackage/linux
+  --dest ./target/jpackage/
 
 ### Install locally
 #sudo dpkg -i ./target/jpackage/linux/saft-sender_1.0-1_amd64.deb
