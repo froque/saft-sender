@@ -7,7 +7,7 @@ wget --no-verbose --directory-prefix=base64/src/sun/misc/ \
   https://raw.githubusercontent.com/JetBrains/jdk8u_jdk/master/src/share/classes/sun/misc/BASE64Encoder.java
 
 mkdir -p base64/build
-javac -d base64/build/ base64/src/sun/misc/*java
+javac --patch-module jdk.unsupported=base64/src/ -d base64/build/ base64/src/sun/misc/*java
 jar --create --file base64.jar -C base64/build/ .
 
 mvn -B install:install-file -Dfile=base64.jar \
