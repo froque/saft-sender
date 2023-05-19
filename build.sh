@@ -2,15 +2,17 @@
 set -euo pipefail
 
 rm -rfv base64
-wget --no-verbose --directory-prefix=base64/src/sun/misc/ \
-  https://raw.githubusercontent.com/JetBrains/jdk8u_jdk/master/src/share/classes/sun/misc/CharacterEncoder.java \
+
+curl --silent --create-dirs -O --output-dir base64/src/sun/misc/ \
+  https://raw.githubusercontent.com/JetBrains/jdk8u_jdk/master/src/share/classes/sun/misc/CharacterEncoder.java
+curl --silent --create-dirs -O --output-dir base64/src/sun/misc/ \
   https://raw.githubusercontent.com/JetBrains/jdk8u_jdk/master/src/share/classes/sun/misc/BASE64Encoder.java
 
 mkdir -p base64/build
 javac --patch-module jdk.unsupported=base64/src/ -d base64/build/ base64/src/sun/misc/*java
 jar --create --file base64.jar -C base64/build/ .
 
-mvn -B install:2.4:install-file -Dfile=base64.jar \
+mvn -B org.apache.maven.plugins:maven-install-plugin:2.4:install-file -Dfile=base64.jar \
                          -DgroupId=sun.misc \
                          -DartifactId=base64 \
                          -Dversion=1 \
@@ -18,10 +20,9 @@ mvn -B install:2.4:install-file -Dfile=base64.jar \
                          -DcreateChecksum=true \
                          -DlocalRepositoryPath=lib
 
+curl --silent -O https://faturas.portaldasfinancas.gov.pt/factemipf_static/java/FACTEMICLI-2.6.2-46755-cmdClient.jar
 
-wget --no-verbose --no-clobber https://faturas.portaldasfinancas.gov.pt/factemipf_static/java/FACTEMICLI-2.6.2-46755-cmdClient.jar
-
-mvn -B install:2.4:install-file -Dfile=FACTEMICLI-2.6.2-46755-cmdClient.jar \
+mvn -B org.apache.maven.plugins:maven-install-plugin:2.4:install-file -Dfile=FACTEMICLI-2.6.2-46755-cmdClient.jar \
                          -DgroupId=pt.gov.portaldasfinancas \
                          -DartifactId=FACTEMICLI \
                          -Dversion=2.6.2-46755 \
