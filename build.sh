@@ -19,12 +19,12 @@ mvn -B install:2.4:install-file -Dfile=base64.jar \
                          -DlocalRepositoryPath=lib
 
 
-wget --no-verbose --no-clobber https://faturas.portaldasfinancas.gov.pt/factemipf_static/java/FACTEMICLI-2.5.16-9655-cmdClient.jar
+wget --no-verbose --no-clobber https://faturas.portaldasfinancas.gov.pt/factemipf_static/java/FACTEMICLI-2.6.2-46755-cmdClient.jar
 
-mvn -B install:2.4:install-file -Dfile=FACTEMICLI-2.5.16-9655-cmdClient.jar \
+mvn -B install:2.4:install-file -Dfile=FACTEMICLI-2.6.2-46755-cmdClient.jar \
                          -DgroupId=pt.gov.portaldasfinancas \
                          -DartifactId=FACTEMICLI \
-                         -Dversion=2.5.16-9655 \
+                         -Dversion=2.6.2-46755 \
                          -Dpackaging=jar \
                          -DcreateChecksum=true \
                          -DlocalRepositoryPath=lib
