@@ -4,27 +4,16 @@ import com.premiumminds.saftsender.api.Arguments;
 import com.premiumminds.saftsender.api.ISender;
 import java.io.FileDescriptor;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
-import java.security.KeyManagementException;
-import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
-import javax.xml.parsers.ParserConfigurationException;
-import org.xml.sax.SAXException;
 import pt.at.factemicli.cmdProcessor.FactemicliCmdClient;
 
 public class FACTEMICLISender implements ISender {
 
 	@Override
 	public void send(final Arguments arguments, OutputStream stream) {
-		captureStdOut(() -> {
-			try {
-				FactemicliCmdClient.main(convertToArgs(arguments));
-			} catch (SAXException | ParserConfigurationException | KeyManagementException | NoSuchAlgorithmException | IOException e) {
-				throw new RuntimeException(e);
-			}
-		}, stream);
+		captureStdOut(() -> FactemicliCmdClient.main(convertToArgs(arguments)), stream);
 	}
 
 	private void captureStdOut(Runnable runnable, OutputStream stream){

@@ -25,7 +25,7 @@
         <dependency>
             <groupId>pt.gov.portaldasfinancas</groupId>
             <artifactId>FACTEMICLI</artifactId>
-            <version>2.5.16-9655</version>
+            <version>2.6.2-46755</version>
         </dependency>
 
         <dependency>
