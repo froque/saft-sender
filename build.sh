@@ -10,21 +10,23 @@ mkdir -p base64/build
 javac --patch-module jdk.unsupported=base64/src/ -d base64/build/ base64/src/sun/misc/*java
 jar --create --file base64.jar -C base64/build/ .
 
-mvn -B install:install-file -Dfile=base64.jar \
+mvn -B install:2.4:install-file -Dfile=base64.jar \
                          -DgroupId=sun.misc \
                          -DartifactId=base64 \
                          -Dversion=1 \
                          -Dpackaging=jar \
+                         -DcreateChecksum=true \
                          -DlocalRepositoryPath=lib
 
 
-wget --no-verbose https://faturas.portaldasfinancas.gov.pt/factemipf_static/java/FACTEMICLI-2.5.16-9655-cmdClient.jar
+wget --no-verbose --no-clobber https://faturas.portaldasfinancas.gov.pt/factemipf_static/java/FACTEMICLI-2.5.16-9655-cmdClient.jar
 
-mvn -B install:install-file -Dfile=FACTEMICLI-2.5.16-9655-cmdClient.jar \
+mvn -B install:2.4:install-file -Dfile=FACTEMICLI-2.5.16-9655-cmdClient.jar \
                          -DgroupId=pt.gov.portaldasfinancas \
                          -DartifactId=FACTEMICLI \
                          -Dversion=2.5.16-9655 \
                          -Dpackaging=jar \
+                         -DcreateChecksum=true \
                          -DlocalRepositoryPath=lib
 
 mvn -B clean package
