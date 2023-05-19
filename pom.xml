@@ -5,6 +5,15 @@
     <artifactId>saft-sender</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <scm>
+        <connection>scm:git:git@github.com:froque/saft-sender.git</connection>
+        <developerConnection>scm:git:git@github.com:froque/saft-sender.git</developerConnection>
+        <url>https://github.com/froque/saft-sender</url>
+        <tag>HEAD</tag>
+    </scm>
+
+    <url>https://github.com/froque/saft-sender</url>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>17</java.version>
