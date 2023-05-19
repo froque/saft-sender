@@ -34,13 +34,13 @@ mvn -B clean package
 
 ## Copy dependencies
 mvn -B dependency:copy-dependencies
-cp -v target/saft-sender-1.0-SNAPSHOT.jar target/dependency
+cp -v target/saft-sender-*.jar target/dependency/saft-sender.jar
 
 ## Create Native Java App Installers
 jpackage \
   --java-options "--patch-module=jdk.unsupported=\$APPDIR/base64-1.jar" \
   --input ./target/dependency \
-  --main-jar saft-sender-1.0-SNAPSHOT.jar \
+  --main-jar saft-sender.jar \
   --main-class com.premiumminds.saftsender.gui.Launcher \
   --name saft-sender \
   --dest ./target/jpackage/
