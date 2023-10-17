@@ -4,9 +4,9 @@ set -euo pipefail
 rm -rfv base64
 
 curl --silent --create-dirs -O --output-dir base64/src/sun/misc/ \
-  https://raw.githubusercontent.com/JetBrains/jdk8u_jdk/master/src/share/classes/sun/misc/CharacterEncoder.java
+  https://raw.githubusercontent.com/JetBrains/jdk8u_jdk/94318f9185757cc33d2b8d527d36be26ac6b7582/src/share/classes/sun/misc/CharacterEncoder.java
 curl --silent --create-dirs -O --output-dir base64/src/sun/misc/ \
-  https://raw.githubusercontent.com/JetBrains/jdk8u_jdk/master/src/share/classes/sun/misc/BASE64Encoder.java
+  https://raw.githubusercontent.com/JetBrains/jdk8u_jdk/94318f9185757cc33d2b8d527d36be26ac6b7582/src/share/classes/sun/misc/BASE64Encoder.java
 
 mkdir -p base64/build
 javac --patch-module jdk.unsupported=base64/src/ -d base64/build/ base64/src/sun/misc/*java
