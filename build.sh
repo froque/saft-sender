@@ -20,9 +20,9 @@ mvn -B org.apache.maven.plugins:maven-install-plugin:2.4:install-file -Dfile=bas
                          -DcreateChecksum=true \
                          -DlocalRepositoryPath=lib
 
-curl --silent -O https://faturas.portaldasfinancas.gov.pt/factemipf_static/java/FACTEMICLI-2.6.2-46755-cmdClient.jar
+curl --silent -O https://faturas.portaldasfinancas.gov.pt/factemipf_static/java/FACTEMICLI-2.8.0-50828-cmdClient.jar
 
-mvn -B org.apache.maven.plugins:maven-install-plugin:2.4:install-file -Dfile=FACTEMICLI-2.6.2-46755-cmdClient.jar \
+mvn -B org.apache.maven.plugins:maven-install-plugin:2.4:install-file -Dfile=FACTEMICLI-2.8.0-50828-cmdClient.jar \
                          -DgroupId=pt.gov.portaldasfinancas \
                          -DartifactId=FACTEMICLI \
                          -Dversion=2.6.2-46755 \
