@@ -2,13 +2,13 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.premiumminds.saftsender</groupId>
     <artifactId>saft-sender</artifactId>
-    <version>1.1-SNAPSHOT</version>
+    <version>1.1</version>
 
     <scm>
         <connection>scm:git:git@github.com:froque/saft-sender.git</connection>
         <developerConnection>scm:git:git@github.com:froque/saft-sender.git</developerConnection>
         <url>https://github.com/froque/saft-sender</url>
-        <tag>HEAD</tag>
+        <tag>saft-sender-1.1</tag>
     </scm>
 
     <url>https://github.com/froque/saft-sender</url>
